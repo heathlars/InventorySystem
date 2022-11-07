@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/** This class creates an app that displays messages. */
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
@@ -18,6 +19,7 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
+        /** This is the main method. This is the first method that gets called when you run your java program.*/
         launch();
     }
 }
