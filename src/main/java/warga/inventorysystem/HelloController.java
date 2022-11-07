@@ -1,6 +1,6 @@
 package warga.inventorysystem;
 
-import javafx.fxml.FXML;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
@@ -8,16 +8,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
-    @FXML
-    private Label welcomeText;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
+    public Label TheLabel;
+    public int count = 0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("I am initialized");
+    }
+
+    public void OnButtonClicked(ActionEvent actionEvent) {
+        System.out.println("I am clicked");
+        TheLabel.setText("You clicked the button: " + count++);
     }
 }
