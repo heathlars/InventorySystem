@@ -27,8 +27,8 @@
                      <children>
                         <Label text="ID" />
                         <Label text="Name" GridPane.rowIndex="1" />
-                        <TextField GridPane.columnIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="addProductIdTxt" GridPane.columnIndex="1" />
+                        <TextField fx:id="addProductNameTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                      <VBox.margin>
                         <Insets left="50.0" />
@@ -55,10 +55,10 @@
                               <Insets left="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField GridPane.columnIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <TextField fx:id="addProductInvTxt" GridPane.columnIndex="1" />
+                        <TextField fx:id="addProductPriceTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="addProductMaxTxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="addProductMinTxt" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                      </children>
                      <VBox.margin>
                         <Insets top="10.0" />
@@ -75,50 +75,50 @@
          <children>
             <VBox alignment="CENTER_RIGHT" prefHeight="600.0" prefWidth="500.0">
                <children>
-                  <TextField alignment="CENTER_RIGHT" maxWidth="-Infinity" promptText="Search by Part ID or Name">
+                  <TextField fx:id="addProductSearchTxtFld" alignment="CENTER_RIGHT" maxWidth="-Infinity" promptText="Search by Part ID or Name">
                      <VBox.margin>
                         <Insets bottom="10.0" right="30.0" top="20.0" />
                      </VBox.margin></TextField>
-                  <TableView prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="addProductTopTbl" prefHeight="200.0" prefWidth="200.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Part ID" />
-                      <TableColumn prefWidth="75.0" text="Part Name" />
-                        <TableColumn prefWidth="150.0" text="Inventory Level" />
-                        <TableColumn prefWidth="170.0" text="Price/Cost per Unit" />
+                      <TableColumn fx:id="addProductTopPartIdCol" prefWidth="75.0" text="Part ID" />
+                      <TableColumn fx:id="addProductTopPartNameCol" prefWidth="75.0" text="Part Name" />
+                        <TableColumn fx:id="addProductTopInvCol" prefWidth="150.0" text="Inventory Level" />
+                        <TableColumn fx:id="addProductTopPriceCol" prefWidth="170.0" text="Price/Cost per Unit" />
                     </columns>
                      <VBox.margin>
                         <Insets right="30.0" />
                      </VBox.margin>
                   </TableView>
-                  <Button mnemonicParsing="false" text="Add">
+                  <Button mnemonicParsing="false" onAction="#onActionAddProductAddBtn" text="Add">
                      <VBox.margin>
                         <Insets bottom="10.0" right="30.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <TableView prefHeight="200.0" prefWidth="200.0">
+                  <TableView fx:id="addProductBottomTbl" prefHeight="200.0" prefWidth="200.0">
                      <columns>
-                        <TableColumn prefWidth="75.0" text="Part ID" />
-                        <TableColumn prefWidth="75.0" text="Part Name" />
-                        <TableColumn prefWidth="150.0" text="Inventory Level" />
-                        <TableColumn prefWidth="170.0" text="Price/Cost per Unit" />
+                        <TableColumn fx:id="addProductBottomPartIdCol" prefWidth="75.0" text="Part ID" />
+                        <TableColumn fx:id="addProductBottomPartNameCol" prefWidth="75.0" text="Part Name" />
+                        <TableColumn fx:id="addProductBottomInvCol" prefWidth="150.0" text="Inventory Level" />
+                        <TableColumn fx:id="addProductBottomPriceCol" prefWidth="170.0" text="Price/Cost per Unit" />
                      </columns>
                      <VBox.margin>
                         <Insets right="30.0" />
                      </VBox.margin>
                   </TableView>
-                  <Button layoutX="439.0" layoutY="320.0" mnemonicParsing="false" text="Remove Associated Part">
+                  <Button layoutX="439.0" layoutY="320.0" mnemonicParsing="false" onAction="#onActionAddProductRemovePartBtn" text="Remove Associated Part">
                      <VBox.margin>
                         <Insets bottom="10.0" right="30.0" top="10.0" />
                      </VBox.margin>
                   </Button>
                   <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Save">
+                        <Button mnemonicParsing="false" onAction="#onActionAddProductSaveBtn" text="Save">
                            <HBox.margin>
                               <Insets right="30.0" />
                            </HBox.margin>
                         </Button>
-                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel">
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onActionAddProductCancelBtn" text="Cancel">
                            <HBox.margin>
                               <Insets right="40.0" />
                            </HBox.margin></Button>
