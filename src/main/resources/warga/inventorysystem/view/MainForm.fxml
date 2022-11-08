@@ -34,7 +34,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <TextField alignment="BOTTOM_RIGHT" promptText="Search by Part ID or Name">
+                        <TextField fx:id="mainFormPartSearchTxtFld" alignment="BOTTOM_RIGHT" promptText="Search by Part ID or Name">
                            <HBox.margin>
                               <Insets left="150.0" right="20.0" />
                            </HBox.margin></TextField>
@@ -43,17 +43,17 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <TableView prefHeight="260.0" prefWidth="400.0">
+                  <TableView fx:id="mainFormPartTbl" prefHeight="260.0" prefWidth="400.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Part ID" />
-                      <TableColumn prefWidth="90.0" text="Part Name" />
-                        <TableColumn prefWidth="100.0" text="Inventory Level" />
-                        <TableColumn prefWidth="135.0" text="Price/Cost per Unit" />
+                      <TableColumn fx:id="mainFormPartIdCol" prefWidth="75.0" text="Part ID" />
+                      <TableColumn fx:id="mainFormPartNameCol" prefWidth="90.0" text="Part Name" />
+                        <TableColumn fx:id="mainFormPartInvCol" prefWidth="100.0" text="Inventory Level" />
+                        <TableColumn fx:id="mainFormPartPriceCol" prefWidth="135.0" text="Price/Cost per Unit" />
                     </columns>
                   </TableView>
                   <HBox alignment="CENTER_RIGHT" prefHeight="50.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Add">
+                        <Button mnemonicParsing="false" onAction="#onActionMainFormAddPart" text="Add">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -61,7 +61,7 @@
                               <Insets bottom="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button layoutX="455.0" layoutY="45.0" mnemonicParsing="false" text="Modify">
+                        <Button layoutX="455.0" layoutY="45.0" mnemonicParsing="false" onAction="#onActionMainFormModifyPart" text="Modify">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -69,7 +69,7 @@
                               <Insets right="15.0" />
                            </HBox.margin>
                         </Button>
-                        <Button layoutX="455.0" layoutY="45.0" mnemonicParsing="false" text="Delete" />
+                        <Button layoutX="455.0" layoutY="45.0" mnemonicParsing="false" onAction="#onActionMainFormDeletePart" text="Delete" />
                      </children>
                   </HBox>
                </children>
@@ -98,7 +98,7 @@
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Label>
-                        <TextField alignment="BOTTOM_RIGHT" promptText="Search by Part ID or Name">
+                        <TextField fx:id="mainFormProductSearchTxtFld" alignment="BOTTOM_RIGHT" promptText="Search by Product ID or Name">
                            <HBox.margin>
                               <Insets left="150.0" />
                            </HBox.margin>
@@ -108,17 +108,17 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <TableView prefHeight="260.0" prefWidth="400.0">
+                  <TableView fx:id="mainFormProductTbl" prefHeight="260.0" prefWidth="400.0">
                      <columns>
-                        <TableColumn prefWidth="70.0" text="Product ID" />
-                        <TableColumn prefWidth="90.0" text="Product Name" />
-                        <TableColumn prefWidth="100.0" text="Inventory Level" />
-                        <TableColumn prefWidth="135.0" text="Price/Cost per Unit" />
+                        <TableColumn fx:id="mainFormProductIdCol" prefWidth="70.0" text="Product ID" />
+                        <TableColumn fx:id="mainFormProductNameCol" prefWidth="90.0" text="Product Name" />
+                        <TableColumn fx:id="mainFormProductInvCol" prefWidth="100.0" text="Inventory Level" />
+                        <TableColumn fx:id="mainFormProductPriceCol" prefWidth="135.0" text="Price/Cost per Unit" />
                      </columns>
                   </TableView>
                   <HBox alignment="CENTER_RIGHT" prefHeight="50.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Add">
+                        <Button mnemonicParsing="false" onAction="#onActionMainFormAddProduct" text="Add">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -126,7 +126,7 @@
                               <Insets bottom="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button layoutX="455.0" layoutY="45.0" mnemonicParsing="false" text="Modify">
+                        <Button layoutX="455.0" layoutY="45.0" mnemonicParsing="false" onAction="#onActionMainFormModifyProduct" text="Modify">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -134,7 +134,7 @@
                               <Insets right="15.0" />
                            </HBox.margin>
                         </Button>
-                        <Button layoutX="455.0" layoutY="45.0" mnemonicParsing="false" text="Delete" />
+                        <Button layoutX="455.0" layoutY="45.0" mnemonicParsing="false" onAction="#onActionMainFormDeleteProduct" text="Delete" />
                      </children>
                   </HBox>
                </children>
@@ -149,7 +149,7 @@
       </HBox>
       <VBox alignment="CENTER_RIGHT" layoutY="400.0" prefHeight="50.0" prefWidth="1000.0">
          <children>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Exit">
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#onActionExitMainForm" text="Exit">
                <VBox.margin>
                   <Insets right="90.0" />
                </VBox.margin></Button>
