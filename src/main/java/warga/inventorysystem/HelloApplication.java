@@ -9,6 +9,12 @@ import java.io.IOException;
 
 /** This class creates an app that displays messages. */
 public class HelloApplication extends Application {
+
+    @Override
+    public void init() {
+        System.out.println("Starting!");
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/warga/inventorysystem/view/MainForm.fxml"));
@@ -16,6 +22,11 @@ public class HelloApplication extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Terminated!");
     }
 
     public static void main(String[] args) {
