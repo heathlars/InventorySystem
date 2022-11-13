@@ -5,24 +5,46 @@ import javafx.collections.ObservableList;
 
 public class Inventory {
 
-    private ObservableList<Part> allParts = FXCollections.observableArrayList();
+    private static ObservableList<Part> allParts = FXCollections.observableArrayList();
 
-    private ObservableList<Product> allProducts = FXCollections.observableArrayList();
+    private static ObservableList<Product> allProducts = FXCollections.observableArrayList();
 
 
-    public ObservableList<Part> getAllParts() {
+    public static ObservableList<Part> getAllParts() {
         return allParts;
     }
 
-    public ObservableList<Product> getAllProducts() {
+    public static ObservableList<Product> getAllProducts() {
         return allProducts;
     }
 
-    public void addPart(Part newPart) {
+    public static void addPart(Part newPart) {
         allParts.add(newPart);
     }
-    public void addProduct(Product newProduct) {
+    public static void addProduct(Product newProduct) {
         allProducts.add(newProduct);
+    }
+
+//    public static Part lookupPart(int partId) {
+//        allParts.filtered(partId);
+//    }
+
+    public static void updatePart(int index, Part selectedPart) {
+        allParts.set(index, selectedPart);
+    }
+
+    public static void updateProduct(int index, Product newProduct) {
+        allProducts.set(index, newProduct);
+    }
+
+    public static boolean deletePart(Part selectedPart){
+        allParts.remove(selectedPart);
+        return true; //unsure what to return here
+    }
+
+    public static boolean deleteProduct(Product selectedProduct) {
+        allProducts.remove(selectedProduct);
+        return true; //again unsure what this should be returning
     }
 
 }
