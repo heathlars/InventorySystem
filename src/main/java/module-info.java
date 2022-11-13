@@ -7,4 +7,6 @@ module warga.inventorysystem {
     exports warga.inventorysystem;
     exports controller;
     opens controller to javafx.fxml;
+    exports model;
+    opens model to javafx.fxml;
 }
