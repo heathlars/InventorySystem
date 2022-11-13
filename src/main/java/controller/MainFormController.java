@@ -10,6 +10,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Part;
+import model.Product;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,17 +24,17 @@ Stage stage;
 Parent scene;
 
     public TextField mainFormPartSearchTxtFld;
-    public TableView mainFormPartTbl;
-    public TableColumn mainFormPartIdCol;
-    public TableColumn mainFormPartNameCol;
-    public TableColumn mainFormPartInvCol;
-    public TableColumn mainFormPartPriceCol;
+    public TableView<Part> mainFormPartTbl;
+    public TableColumn<Part, Integer> mainFormPartIdCol;
+    public TableColumn<Part, String> mainFormPartNameCol;
+    public TableColumn<Part, Integer> mainFormPartInvCol;
+    public TableColumn<Part, Double> mainFormPartPriceCol;
     public TextField mainFormProductSearchTxtFld;
-    public TableView mainFormProductTbl;
-    public TableColumn mainFormProductIdCol;
-    public TableColumn mainFormProductNameCol;
-    public TableColumn mainFormProductInvCol;
-    public TableColumn mainFormProductPriceCol;
+    public TableView<Product> mainFormProductTbl;
+    public TableColumn<Product, Integer> mainFormProductIdCol;
+    public TableColumn<Product, String> mainFormProductNameCol;
+    public TableColumn<Product, Integer> mainFormProductInvCol;
+    public TableColumn<Product, Integer> mainFormProductPriceCol;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
