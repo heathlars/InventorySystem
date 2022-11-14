@@ -29,7 +29,7 @@ public class AddPartOutsourcedController implements Initializable {
     public TextField addPartInvTxt;
     public TextField addPartPriceTxt;
     public TextField addPartMaxTxt;
-    public TextField addPartMachineIdTxt;
+    public TextField addPartCompanyNameTxt;
     public TextField addPartMinTxt;
 
     @Override
