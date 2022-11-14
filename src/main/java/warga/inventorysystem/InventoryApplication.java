@@ -4,11 +4,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.InHouse;
+import model.Inventory;
 
 import java.io.IOException;
 
 /** This class creates an app that displays messages. */
-public class HelloApplication extends Application {
+public class InventoryApplication extends Application {
 
     @Override
     public void init() {
@@ -17,9 +19,9 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/warga/inventorysystem/view/MainForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(InventoryApplication.class.getResource("/warga/inventorysystem/view/MainForm.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 450);
-        stage.setTitle("Hello!");
+        stage.setTitle("Welcome!");
         stage.setScene(scene);
         stage.show();
     }
@@ -31,6 +33,11 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         /** This is the main method. This is the first method that gets called when you run your java program.*/
+
+        InHouse part1 = new InHouse(1, "wheel", 14.99, 12, 2, 30, 4444);
+
+        Inventory.addPart(part1);
+
         launch();
     }
 }
