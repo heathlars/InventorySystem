@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Inventory;
 import model.Part;
 import model.Product;
 
@@ -38,6 +39,9 @@ Parent scene;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        mainFormPartTbl.setItems(Inventory.getAllParts());
+        mainFormProductTbl.setItems(Inventory.getAllProducts());
+
     }
 
     public void onActionMainFormAddPart(ActionEvent actionEvent) throws IOException {
