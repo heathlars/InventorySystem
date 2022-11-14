@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Inventory;
+import model.Outsourced;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,27 +40,22 @@ public class AddPartOutsourcedController implements Initializable {
 
     public void onActionAddPartSaveBtn(ActionEvent actionEvent) throws IOException {
         try {
-//            boolean isPartInHouse;
-//            int id = Integer.parseInt(addPartIdTxt.getText());
-//            String name = addPartNameTxt.getText();
-//            int stock = Integer.parseInt(addPartInvTxt.getText());
-//            double price = Double.parseDouble(addPartPriceTxt.getText());
-//            int max = Integer.parseInt(addPartMaxTxt.getText());
-//            int min = Integer.parseInt(addPartMinTxt.getText());
-//
-//            //condition to check which radio button was selected
-//            if(addPartInHouseRBtn.isSelected())
-//                isPartInHouse = true;
-//            else isPartInHouse = false;
-//
-//            Inventory.addPart(new Part(isPartInHouse, id, name, price, stock, max, min));
+            int id = Integer.parseInt(addPartIdTxt.getText());
+            String name = addPartNameTxt.getText();
+            int stock = Integer.parseInt(addPartInvTxt.getText());
+            double price = Double.parseDouble(addPartPriceTxt.getText());
+            int max = Integer.parseInt(addPartMaxTxt.getText());
+            int min = Integer.parseInt(addPartMinTxt.getText());
+            String companyName = addPartCompanyNameTxt.getText();
+
+            Inventory.addPart(new Outsourced(id, name, price, stock, min, max, companyName));
 
             stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
             scene = FXMLLoader.load(getClass().getResource("/warga/inventorysystem/view/MainForm.fxml"));
             stage.setScene(new Scene(scene));
             stage.show();
 
-        } catch(NumberFormatException e) {
+        } catch(NumberFormatException e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error Dialogue");
             alert.setContentText("Please enter a valid value for each text field.");
