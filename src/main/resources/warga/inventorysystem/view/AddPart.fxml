@@ -15,7 +15,7 @@
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Label>
-                  <RadioButton fx:id="addPartInHouseRBtn" mnemonicParsing="false" onAction="#onActionInHouseSetMachineId" text="In-House">
+                  <RadioButton fx:id="addPartInHouseRBtn" mnemonicParsing="false" onAction="#onActionInHouseSetMachineId" selected="true" text="In-House">
                      <padding>
                         <Insets left="40.0" />
                      </padding>
@@ -54,7 +54,7 @@
                   <Label text="Inv" GridPane.rowIndex="2" />
                   <Label text="Price/Cost" GridPane.rowIndex="3" />
                   <Label text="Max" GridPane.rowIndex="4" />
-                  <Label text="Machine ID" GridPane.rowIndex="5" />
+                  <Label fx:id="addPartMachineIdLbl" text="Machine ID" GridPane.rowIndex="5" />
                   <TextField fx:id="addPartIdTxt" GridPane.columnIndex="1" />
                   <TextField fx:id="addPartNameTxt" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="addPartInvTxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />

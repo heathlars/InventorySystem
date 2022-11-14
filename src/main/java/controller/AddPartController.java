@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -30,6 +31,7 @@ public class AddPartController implements Initializable {
     public TextField addPartMaxTxt;
     public TextField addPartMachineIdTxt;
     public TextField addPartMinTxt;
+    public Label addPartMachineIdLbl;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -50,16 +52,10 @@ public class AddPartController implements Initializable {
     }
 
     public void onActionInHouseSetMachineId(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((RadioButton)actionEvent.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("/warga/inventorysystem/view/AddPartInHouse.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
+    addPartMachineIdLbl.setText("Machine ID");
     }
 
     public void onActionOutsourcedSetCompanyName(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((RadioButton)actionEvent.getSource()).getScene().getWindow();
-        scene = FXMLLoader.load(getClass().getResource("/warga/inventorysystem/view/AddPartOutsourced.fxml"));
-        stage.setScene(new Scene(scene));
-        stage.show();
+    addPartMachineIdLbl.setText("Company Name");
     }
 }
