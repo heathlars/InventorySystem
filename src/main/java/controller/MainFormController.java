@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Inventory;
 import model.Part;
@@ -40,7 +41,18 @@ Parent scene;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mainFormPartTbl.setItems(Inventory.getAllParts());
+
+        mainFormPartIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        mainFormPartNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        mainFormPartInvCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        mainFormPartPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+
         mainFormProductTbl.setItems(Inventory.getAllProducts());
+
+        mainFormProductIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        mainFormProductNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        mainFormProductInvCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        mainFormProductPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
 
     }
 
