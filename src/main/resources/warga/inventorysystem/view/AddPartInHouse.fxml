@@ -15,7 +15,7 @@
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Label>
-                  <RadioButton fx:id="addPartInHouseRBtn" mnemonicParsing="false" onAction="#onActionInHouseSetMachineId" text="In-House">
+                  <RadioButton fx:id="addPartInHouseRBtn" mnemonicParsing="false" onAction="#onActionInHouseSetMachineId" selected="true" text="In-House">
                      <padding>
                         <Insets left="40.0" />
                      </padding>

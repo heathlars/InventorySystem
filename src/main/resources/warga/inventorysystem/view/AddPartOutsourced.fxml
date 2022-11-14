@@ -23,7 +23,7 @@
                         <ToggleGroup fx:id="addPartTg" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="addPartOutsourcedRBtn" layoutX="73.0" layoutY="10.0" mnemonicParsing="false" onAction="#onActionOutsourcedSetCompanyName" text="Outsourced" toggleGroup="$addPartTg">
+                  <RadioButton fx:id="addPartOutsourcedRBtn" layoutX="73.0" layoutY="10.0" mnemonicParsing="false" onAction="#onActionOutsourcedSetCompanyName" selected="true" text="Outsourced" toggleGroup="$addPartTg">
                      <HBox.margin>
                         <Insets left="40.0" />
                      </HBox.margin>
