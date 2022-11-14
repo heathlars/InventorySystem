@@ -10,8 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.Inventory;
-import model.Part;
 
 import java.io.IOException;
 import java.net.URL;
@@ -40,20 +38,20 @@ public class AddPartController implements Initializable {
 
     public void onActionAddPartSaveBtn(ActionEvent actionEvent) throws IOException {
         try {
-            boolean isPartInHouse;
-            int id = Integer.parseInt(addPartIdTxt.getText());
-            String name = addPartNameTxt.getText();
-            int stock = Integer.parseInt(addPartInvTxt.getText());
-            double price = Double.parseDouble(addPartPriceTxt.getText());
-            int max = Integer.parseInt(addPartMaxTxt.getText());
-            int min = Integer.parseInt(addPartMinTxt.getText());
-
-            //condition to check which radio button was selected
-            if(addPartInHouseRBtn.isSelected())
-                isPartInHouse = true;
-            else isPartInHouse = false;
-
-            Inventory.addPart(new Part(isPartInHouse, id, name, price, stock, max, min));
+//            boolean isPartInHouse;
+//            int id = Integer.parseInt(addPartIdTxt.getText());
+//            String name = addPartNameTxt.getText();
+//            int stock = Integer.parseInt(addPartInvTxt.getText());
+//            double price = Double.parseDouble(addPartPriceTxt.getText());
+//            int max = Integer.parseInt(addPartMaxTxt.getText());
+//            int min = Integer.parseInt(addPartMinTxt.getText());
+//
+//            //condition to check which radio button was selected
+//            if(addPartInHouseRBtn.isSelected())
+//                isPartInHouse = true;
+//            else isPartInHouse = false;
+//
+//            Inventory.addPart(new Part(isPartInHouse, id, name, price, stock, max, min));
 
             stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
             scene = FXMLLoader.load(getClass().getResource("/warga/inventorysystem/view/MainForm.fxml"));
@@ -71,6 +69,16 @@ public class AddPartController implements Initializable {
     public void onActionAddPartCancelBtn(ActionEvent actionEvent) throws IOException {
         stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/warga/inventorysystem/view/MainForm.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
+    }
+
+    public void onActionInHouseSetMachineId(ActionEvent actionEvent) {
+    }
+
+    public void onActionOutsourcedSetCompanyName(ActionEvent actionEvent) throws IOException {
+        stage = (Stage)((RadioButton)actionEvent.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/warga/inventorysystem/view/AddPartOutsourced.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
     }

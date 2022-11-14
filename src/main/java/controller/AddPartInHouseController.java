@@ -76,6 +76,10 @@ public class AddPartInHouseController implements Initializable {
     public void onActionInHouseSetMachineId(ActionEvent actionEvent) {
     }
 
-    public void onActionOutsourcedSetCompanyName(ActionEvent actionEvent) {
+    public void onActionOutsourcedSetCompanyName(ActionEvent actionEvent) throws IOException {
+        stage = (Stage)((RadioButton)actionEvent.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/warga/inventorysystem/view/AddPartOutsourced.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
     }
 }
