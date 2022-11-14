@@ -60,7 +60,7 @@
                   <TextField fx:id="addPartInvTxt" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField fx:id="addPartPriceTxt" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <TextField fx:id="addPartMaxTxt" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextField fx:id="addPartMachineIdTxt" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="addPartOriginationTxt" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                   <Label alignment="CENTER" text="Min" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <padding>
                         <Insets left="50.0" />
