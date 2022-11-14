@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.InHouse;
+import model.Inventory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,22 +40,17 @@ public class AddPartInHouseController implements Initializable {
 
     public void onActionAddPartSaveBtn(ActionEvent actionEvent) throws IOException {
         try {
-//            boolean isPartInHouse;
-//            int id = Integer.parseInt(addPartIdTxt.getText());
-//            String name = addPartNameTxt.getText();
-//            int stock = Integer.parseInt(addPartInvTxt.getText());
-//            double price = Double.parseDouble(addPartPriceTxt.getText());
-//            int max = Integer.parseInt(addPartMaxTxt.getText());
-//            int min = Integer.parseInt(addPartMinTxt.getText());
-//
-//            //condition to check which radio button was selected
-//            if(addPartInHouseRBtn.isSelected())
-//                isPartInHouse = true;
-//            else isPartInHouse = false;
-//
-//            Inventory.addPart(new Part(isPartInHouse, id, name, price, stock, max, min));
+            int id = Integer.parseInt(addPartIdTxt.getText());
+            String name = addPartNameTxt.getText();
+            int stock = Integer.parseInt(addPartInvTxt.getText());
+            double price = Double.parseDouble(addPartPriceTxt.getText());
+            int max = Integer.parseInt(addPartMaxTxt.getText());
+            int min = Integer.parseInt(addPartMinTxt.getText());
+            int machineId = Integer.parseInt(addPartMachineIdTxt.getText());
 
-            stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
+            Inventory.addPart(new InHouse(id, name, price, stock, max, min, machineId));
+
+            stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
             scene = FXMLLoader.load(getClass().getResource("/warga/inventorysystem/view/MainForm.fxml"));
             stage.setScene(new Scene(scene));
             stage.show();
@@ -64,6 +61,7 @@ public class AddPartInHouseController implements Initializable {
             alert.setContentText("Please enter a valid value for each text field.");
             alert.showAndWait();
         }
+
     }
 
     public void onActionAddPartCancelBtn(ActionEvent actionEvent) throws IOException {
@@ -73,7 +71,11 @@ public class AddPartInHouseController implements Initializable {
         stage.show();
     }
 
-    public void onActionInHouseSetMachineId(ActionEvent actionEvent) {
+    public void onActionInHouseSetMachineId(ActionEvent actionEvent) throws IOException {
+        stage = (Stage)((RadioButton)actionEvent.getSource()).getScene().getWindow();
+        scene = FXMLLoader.load(getClass().getResource("/warga/inventorysystem/view/AddPartInHouse.fxml"));
+        stage.setScene(new Scene(scene));
+        stage.show();
     }
 
     public void onActionOutsourcedSetCompanyName(ActionEvent actionEvent) throws IOException {
