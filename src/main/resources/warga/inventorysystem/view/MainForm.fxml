@@ -5,23 +5,23 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainFormController">
    <children>
-      <VBox prefHeight="450.0" prefWidth="1000.0">
+      <VBox prefHeight="450.0" prefWidth="1100.0">
          <children>
             <Label text="Inventory Management System">
                <padding>
                   <Insets bottom="10.0" left="10.0" top="20.0" />
                </padding>
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="18.0" />
                </font></Label>
          </children></VBox>
-      <HBox prefHeight="400.0" prefWidth="500.0">
+      <HBox prefHeight="450.0" prefWidth="550.0">
          <children>
-            <VBox prefHeight="450.0" prefWidth="400.0">
+            <VBox prefHeight="450.0" prefWidth="475.0">
                <children>
-                  <HBox alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="400.0">
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="450.0">
                      <children>
                         <Label alignment="BOTTOM_LEFT" text="Parts">
                            <HBox.margin>
@@ -36,7 +36,7 @@
                         </Label>
                         <TextField fx:id="mainFormPartSearchTxtFld" alignment="BOTTOM_RIGHT" promptText="Search by Part ID or Name">
                            <HBox.margin>
-                              <Insets left="150.0" right="20.0" />
+                              <Insets left="250.0" />
                            </HBox.margin></TextField>
                      </children>
                      <VBox.margin>
@@ -46,9 +46,9 @@
                   <TableView fx:id="mainFormPartTbl" prefHeight="260.0" prefWidth="400.0">
                     <columns>
                       <TableColumn fx:id="mainFormPartIdCol" prefWidth="75.0" text="Part ID" />
-                      <TableColumn fx:id="mainFormPartNameCol" prefWidth="90.0" text="Part Name" />
+                      <TableColumn fx:id="mainFormPartNameCol" prefWidth="100.0" text="Part Name" />
                         <TableColumn fx:id="mainFormPartInvCol" prefWidth="100.0" text="Inventory Level" />
-                        <TableColumn fx:id="mainFormPartPriceCol" prefWidth="135.0" text="Price/Cost per Unit" />
+                        <TableColumn fx:id="mainFormPartPriceCol" prefWidth="200.0" text="Price/Cost per Unit" />
                     </columns>
                   </TableView>
                   <HBox alignment="CENTER_RIGHT" prefHeight="50.0">
@@ -81,11 +81,11 @@
          <padding>
             <Insets left="50.0" top="50.0" />
          </padding></HBox>
-      <HBox alignment="TOP_RIGHT" layoutX="531.0" prefHeight="400.0" prefWidth="469.0">
+      <HBox alignment="TOP_RIGHT" layoutX="550.0" prefHeight="450.0" prefWidth="550.0">
          <children>
-            <VBox prefHeight="450.0" prefWidth="400.0">
+            <VBox prefHeight="450.0" prefWidth="525.0">
                <children>
-                  <HBox alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="400.0">
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="450.0">
                      <children>
                         <Label alignment="BOTTOM_LEFT" text="Products">
                            <HBox.margin>
@@ -100,7 +100,7 @@
                         </Label>
                         <TextField fx:id="mainFormProductSearchTxtFld" alignment="BOTTOM_RIGHT" promptText="Search by Product ID or Name">
                            <HBox.margin>
-                              <Insets left="150.0" />
+                              <Insets left="225.0" />
                            </HBox.margin>
                         </TextField>
                      </children>
@@ -110,10 +110,10 @@
                   </HBox>
                   <TableView fx:id="mainFormProductTbl" prefHeight="260.0" prefWidth="400.0">
                      <columns>
-                        <TableColumn fx:id="mainFormProductIdCol" prefWidth="70.0" text="Product ID" />
-                        <TableColumn fx:id="mainFormProductNameCol" prefWidth="90.0" text="Product Name" />
+                        <TableColumn fx:id="mainFormProductIdCol" prefWidth="75.0" text="Product ID" />
+                        <TableColumn fx:id="mainFormProductNameCol" prefWidth="100.0" text="Product Name" />
                         <TableColumn fx:id="mainFormProductInvCol" prefWidth="100.0" text="Inventory Level" />
-                        <TableColumn fx:id="mainFormProductPriceCol" prefWidth="135.0" text="Price/Cost per Unit" />
+                        <TableColumn fx:id="mainFormProductPriceCol" prefWidth="200.0" text="Price/Cost per Unit" />
                      </columns>
                   </TableView>
                   <HBox alignment="CENTER_RIGHT" prefHeight="50.0">
@@ -138,16 +138,19 @@
                      </children>
                   </HBox>
                </children>
+               <padding>
+                  <Insets right="50.0" />
+               </padding>
             </VBox>
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
          <padding>
-            <Insets right="50.0" top="50.0" />
+            <Insets top="50.0" />
          </padding>
       </HBox>
-      <VBox alignment="CENTER_RIGHT" layoutY="400.0" prefHeight="50.0" prefWidth="1000.0">
+      <VBox alignment="CENTER_RIGHT" layoutY="400.0" prefHeight="50.0" prefWidth="1100.0">
          <children>
             <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#onActionExitMainForm" text="Exit">
                <VBox.margin>

@@ -20,7 +20,7 @@ public class InventoryApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(InventoryApplication.class.getResource("/warga/inventorysystem/view/MainForm.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 450);
+        Scene scene = new Scene(fxmlLoader.load(), 1100, 450);
         stage.setTitle("Welcome!");
         stage.setScene(scene);
         stage.show();
