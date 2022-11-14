@@ -48,7 +48,13 @@ public class AddPartController implements Initializable {
             int machineId = Integer.parseInt(addPartOriginationTxt.getText());
             String companyName = addPartOriginationTxt.getText();
 
-// issue: how to allow text field "addPartOriginationTxt" allow int or String value depending on radio button clicked
+// issue: how to allow text field "addPartOriginationTxt" allow int or String value depending on radio button clicked. attempted to do if/else statement,
+//            if(addPartInHouseRBtn.isSelected()) {
+//                int machineId = Integer.parseInt(addPartOriginationTxt.getText());
+//            } else {
+//                String companyName = addPartOriginationTxt.getText();
+//            }
+
             Inventory.addPart(new Outsourced(id, name, price, stock, min, max, companyName));
             Inventory.addPart(new InHouse(id, name, price, stock, max, min, machineId));
 
