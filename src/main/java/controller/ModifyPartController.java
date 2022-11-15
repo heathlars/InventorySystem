@@ -33,6 +33,7 @@ public class ModifyPartController implements Initializable {
     }
 
     public void onActionModifyPartSaveBtn(ActionEvent actionEvent) {
+        // get index off allParts, not table view
     }
 
     public void onActionModifyPartCancelBtn(ActionEvent actionEvent) throws IOException {
