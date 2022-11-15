@@ -15,14 +15,15 @@ public abstract class Part {
         this.max = max;
     }
 
-    // idea for generating unique id for part
+////     idea for generating unique id for part
 //    public static void generateId(int id) {
-//        id = 1;
 //        id++;
 //    }
-
+//    static int count = 0;
 
     public int getId() {
+//        id = count;
+//        count++;
         return id;
     }
 
