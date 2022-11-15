@@ -95,6 +95,17 @@ Parent scene;
         String q = mainFormPartSearchTxtFld.getText();
         ObservableList<Part> parts = searchByPartName(q);
         mainFormPartTbl.setItems(parts);
+
+        if(parts.size() == 0) {
+            try {
+                int id = Integer.parseInt(q);
+                Part p = searchByPartId(id);
+                if (p != null)
+                    parts.add(p);
+            } catch (NumberFormatException e){
+            // ignore
+            }
+        }
     }
 
     public void onActionMainFormProductSearch(ActionEvent actionEvent) {
@@ -111,4 +122,16 @@ Parent scene;
         }
         return namedParts;
     }
+
+    private Part searchByPartId(int id) {
+        ObservableList<Part> allParts = Inventory.getAllParts();
+        for(int i = 0; i < allParts.size(); i++) {
+            Part p = allParts.get(i);
+            if(p.getId() == id) {
+                return p;
+            }
+        }
+        return null;
+    }
+
 }
