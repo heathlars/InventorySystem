@@ -22,7 +22,6 @@ import java.util.ResourceBundle;
 public class MainFormController implements Initializable {
 
 Stage stage;
-
 Parent scene;
 
     public TextField mainFormPartSearchTxtFld;
@@ -88,5 +87,11 @@ Parent scene;
 
     public void onActionExitMainForm(ActionEvent actionEvent) {
         System.exit(0);
+    }
+
+    public void onActionMainFormPartSearch(ActionEvent actionEvent) {
+    }
+
+    public void onActionMainFormProductSearch(ActionEvent actionEvent) {
     }
 }
