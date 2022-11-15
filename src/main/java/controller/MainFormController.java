@@ -114,12 +114,13 @@ Parent scene;
         for(Part p : allParts) {
             if(p.getName().contains(partialPartName)){
                 namedParts.add(p);
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error Dialogue");
-                alert.setContentText("No part was found.");
-                alert.showAndWait();
             }
+//            else {
+//                Alert alert = new Alert(Alert.AlertType.ERROR);
+//                alert.setTitle("Error Dialogue");
+//                alert.setContentText("No part was found.");
+//                alert.showAndWait();
+//            }
         }
         return namedParts;
     }
@@ -130,12 +131,13 @@ Parent scene;
             Part p = allParts.get(i);
             if(p.getId() == id) {
                 return p;
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error Dialogue");
-                alert.setContentText("No part was found.");
-                alert.showAndWait();
             }
+//            else {
+//                Alert alert = new Alert(Alert.AlertType.ERROR);
+//                alert.setTitle("Error Dialogue");
+//                alert.setContentText("No part was found.");
+//                alert.showAndWait();
+//            }
         }
         return null;
     }
