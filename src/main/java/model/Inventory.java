@@ -25,9 +25,32 @@ public class Inventory {
         allProducts.add(newProduct);
     }
 
+    // this is where search function should exist, NOT in main form
 //    public static Part lookupPart(int partId) {
-//        allParts.filtered(partId);
+//        // use enhanced for loop - check chapter 5.10 in book
+
 //    }
+
+    public static ObservableList<Part> lookupPart(String partialPartName){
+        ObservableList<Part> namedParts = FXCollections.observableArrayList();
+
+        for(Part p : allParts) {
+            if(p.getName().toUpperCase().contains(partialPartName.toUpperCase())){
+                namedParts.add(p);
+            }
+        }
+        return namedParts;
+    }
+
+    public static Part lookupPart(int partId){
+
+        for(Part p : allParts) {
+            if(p.getId() == partId){
+                return p;
+            }
+        }
+        return null;
+    }
 
     // announcement re: updatePart on course homepage!!! should reference newPart, not selectedPart?
     public static void updatePart(int index, Part selectedPart) {
@@ -39,13 +62,12 @@ public class Inventory {
     }
 
     public static boolean deletePart(Part selectedPart){
-        allParts.remove(selectedPart);
-        return true; //unsure what to return here
+        return allParts.remove(selectedPart);
+
     }
 
     public static boolean deleteProduct(Product selectedProduct) {
-        allProducts.remove(selectedProduct);
-        return true; //again unsure what this should be returning
+        return allProducts.remove(selectedProduct);
     }
 
 }

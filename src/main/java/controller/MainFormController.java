@@ -89,19 +89,30 @@ Parent scene;
     }
 
     public void onActionMainFormPartSearch(ActionEvent actionEvent) {
-        String q = mainFormPartSearchTxtFld.getText();
-        ObservableList<Part> parts = searchByPartName(q);
-        mainFormPartTbl.setItems(parts);
+//        test to see if string is blank, if empty set items to  allParts
+//      try {
+//
+//          lookup by ID, return part object - is null or real part
+//           if real part, highlight in table view
+//          if null, may want to search by name
+//         } catch {NumberFExceptions
+//         try id, if no id,
+//         }
 
-        if(parts.size() == 0) {
-            try {
-                int id = Integer.parseInt(q);
-                Part p = searchByPartId(id);
-                if (p != null)
-                    parts.add(p);
-            } catch (NumberFormatException e){
-            }
-        }
+
+//        String q = mainFormPartSearchTxtFld.getText();
+//        ObservableList<Part> parts = searchByPartName(q);
+//        mainFormPartTbl.setItems(parts);
+//
+//        if(parts.size() == 0) {
+//            try {
+//                int id = Integer.parseInt(q);
+//                Part p = searchByPartId(id);
+//                if (p != null)
+//                    parts.add(p);
+//            } catch (NumberFormatException e){
+//            }
+//        }
     }
 
     public void onActionMainFormProductSearch(ActionEvent actionEvent) {
@@ -118,6 +129,7 @@ Parent scene;
             if(p.getName().contains(partialPartName)){
                 namedParts.add(p);
             }
+//          error not working
 //            else {
 //                Alert alert = new Alert(Alert.AlertType.ERROR);
 //                alert.setTitle("Error Dialogue");
@@ -135,6 +147,7 @@ Parent scene;
             if(p.getId() == id) {
                 return p;
             }
+//            error not working
 //            else {
 //                Alert alert = new Alert(Alert.AlertType.ERROR);
 //                alert.setTitle("Error Dialogue");
