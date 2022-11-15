@@ -105,6 +105,9 @@ Parent scene;
     }
 
     public void onActionMainFormProductSearch(ActionEvent actionEvent) {
+        String q = mainFormProductSearchTxtFld.getText();
+        ObservableList<Product> products = searchByProductName(q);
+        mainFormProductTbl.setItems(products);
     }
 
     private ObservableList<Part> searchByPartName(String partialPartName) {
@@ -140,6 +143,17 @@ Parent scene;
 //            }
         }
         return null;
+    }
+
+    private ObservableList<Product> searchByProductName(String partialProductName) {
+        ObservableList<Product> namedProducts = FXCollections.observableArrayList();
+        ObservableList<Product> allProducts = Inventory.getAllProducts();
+
+        for(Product p : allProducts) {
+            if(p.getName().contains(partialProductName)){
+                namedProducts.add(p);
+            }
+        } return namedProducts;
     }
 
 }
