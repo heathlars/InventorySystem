@@ -100,7 +100,6 @@ Parent scene;
                 if (p != null)
                     parts.add(p);
             } catch (NumberFormatException e){
-            // ignore
             }
         }
     }
