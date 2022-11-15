@@ -29,6 +29,7 @@ public class Inventory {
 //        allParts.filtered(partId);
 //    }
 
+    // announcement re: updatePart on course homepage!!! should reference newPart, not selectedPart?
     public static void updatePart(int index, Part selectedPart) {
         allParts.set(index, selectedPart);
     }
