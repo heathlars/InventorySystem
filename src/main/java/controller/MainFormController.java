@@ -1,5 +1,7 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -90,8 +92,23 @@ Parent scene;
     }
 
     public void onActionMainFormPartSearch(ActionEvent actionEvent) {
+        String q = mainFormPartSearchTxtFld.getText();
+        ObservableList<Part> parts = searchByPartName(q);
+        mainFormPartTbl.setItems(parts);
     }
 
     public void onActionMainFormProductSearch(ActionEvent actionEvent) {
+    }
+
+    private ObservableList<Part> searchByPartName(String partialPartName) {
+        ObservableList<Part> namedParts = FXCollections.observableArrayList();
+        ObservableList<Part> allParts = Inventory.getAllParts();
+
+        for(Part p : allParts) {
+            if(p.getName().contains(partialPartName)){
+                namedParts.add(p);
+            }
+        }
+        return namedParts;
     }
 }
