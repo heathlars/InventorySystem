@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.InHouse;
 import model.Inventory;
+import model.Product;
 
 import java.io.IOException;
 
@@ -37,8 +38,13 @@ public class InventoryApplication extends Application {
         InHouse part1 = new InHouse(1, "wheel", 14.99, 12, 2, 30, 4444);
         InHouse part2 = new InHouse(2, "spoke", 11.99, 40, 6, 80, 3333);
 
+        Product product1 = new Product(3, 8, 1, 10, "bike", 209.99);
+        Product product2 = new Product(4, 7, 1, 10, "helmet", 29.99);
+
         Inventory.addPart(part1);
         Inventory.addPart(part2);
+        Inventory.addProduct(product1);
+        Inventory.addProduct(product2);
 
         launch();
     }
