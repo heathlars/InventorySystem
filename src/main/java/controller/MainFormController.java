@@ -1,13 +1,14 @@
 package controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Inventory;
@@ -20,8 +21,8 @@ import java.util.ResourceBundle;
 
 public class MainFormController implements Initializable {
 
-Stage stage;
-Parent scene;
+    Stage stage;
+    Parent scene;
 
     public TextField mainFormPartSearchTxtFld;
     public TableView<Part> mainFormPartTbl;
@@ -55,13 +56,13 @@ Parent scene;
     }
 
     public void onActionMainFormAddPart(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
+        stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/warga/inventorysystem/view/AddPart.fxml"));
         stage.setScene(new Scene(scene));
     }
 
     public void onActionMainFormModifyPart(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
+        stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/warga/inventorysystem/view/ModifyPart.fxml"));
         stage.setScene(new Scene(scene));
     }
@@ -70,13 +71,13 @@ Parent scene;
     }
 
     public void onActionMainFormAddProduct(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
+        stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/warga/inventorysystem/view/AddProduct.fxml"));
         stage.setScene(new Scene(scene));
     }
 
     public void onActionMainFormModifyProduct(ActionEvent actionEvent) throws IOException {
-        stage = (Stage)((Button)actionEvent.getSource()).getScene().getWindow();
+        stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/warga/inventorysystem/view/ModifyProduct.fxml"));
         stage.setScene(new Scene(scene));
     }
@@ -89,13 +90,30 @@ Parent scene;
     }
 
     public void onActionMainFormPartSearch(ActionEvent actionEvent) {
+        String q = mainFormPartSearchTxtFld.getText();
+        Inventory.lookupPart(q);
+        mainFormPartTbl.setItems(); //call namedParts from Inventory.lookupPart method???)
+
+        if (Inventory.lookupPart(q).isEmpty()) {
+            mainFormPartTbl.setItems(Inventory.getAllParts());
+        }
+        try {
+                int id = Integer.parseInt(q);
+                Part p = Inventory.lookupPart(id);
+                if (p != null)
+                    mainFormPartTbl.add(p);
+            } catch (NumberFormatException e){
+            }
+    }
+
+
 //        test to see if string is blank, if empty set items to  allParts
 //      try {
 //
 //          lookup by ID, return part object - is null or real part
 //           if real part, highlight in table view
 //          if null, may want to search by name
-//         } catch {NumberFExceptions
+//         } catch {NumberFException
 //         try id, if no id,
 //         }
 
@@ -113,60 +131,59 @@ Parent scene;
 //            } catch (NumberFormatException e){
 //            }
 //        }
-    }
 
-    public void onActionMainFormProductSearch(ActionEvent actionEvent) {
-        String q = mainFormProductSearchTxtFld.getText();
-        ObservableList<Product> products = searchByProductName(q);
-        mainFormProductTbl.setItems(products);
-    }
-
-    private ObservableList<Part> searchByPartName(String partialPartName) {
-        ObservableList<Part> namedParts = FXCollections.observableArrayList();
-        ObservableList<Part> allParts = Inventory.getAllParts();
-
-        for(Part p : allParts) {
-            if(p.getName().contains(partialPartName)){
-                namedParts.add(p);
-            }
-//          error not working
-//            else {
-//                Alert alert = new Alert(Alert.AlertType.ERROR);
-//                alert.setTitle("Error Dialogue");
-//                alert.setContentText("No part was found.");
-//                alert.showAndWait();
-//            }
+        public void onActionMainFormProductSearch (ActionEvent actionEvent){
+//            String q = mainFormProductSearchTxtFld.getText();
+//            ObservableList<Product> products = searchByProductName(q);
+//            mainFormProductTbl.setItems(products);
         }
-        return namedParts;
-    }
 
-    private Part searchByPartId(int id) {
-        ObservableList<Part> allParts = Inventory.getAllParts();
-        for(int i = 0; i < allParts.size(); i++) {
-            Part p = allParts.get(i);
-            if(p.getId() == id) {
-                return p;
-            }
-//            error not working
-//            else {
-//                Alert alert = new Alert(Alert.AlertType.ERROR);
-//                alert.setTitle("Error Dialogue");
-//                alert.setContentText("No part was found.");
-//                alert.showAndWait();
+//    private ObservableList<Part> searchByPartName(String partialPartName) {
+//        ObservableList<Part> namedParts = FXCollections.observableArrayList();
+//        ObservableList<Part> allParts = Inventory.getAllParts();
+//
+//        for(Part p : allParts) {
+//            if(p.getName().contains(partialPartName)){
+//                namedParts.add(p);
 //            }
-        }
-        return null;
-    }
+////          error not working
+////            else {
+////                Alert alert = new Alert(Alert.AlertType.ERROR);
+////                alert.setTitle("Error Dialogue");
+////                alert.setContentText("No part was found.");
+////                alert.showAndWait();
+////            }
+//        }
+//        return namedParts;
+//    }
 
-    private ObservableList<Product> searchByProductName(String partialProductName) {
-        ObservableList<Product> namedProducts = FXCollections.observableArrayList();
-        ObservableList<Product> allProducts = Inventory.getAllProducts();
-
-        for(Product p : allProducts) {
-            if(p.getName().contains(partialProductName)){
-                namedProducts.add(p);
-            }
-        } return namedProducts;
-    }
+//    private Part searchByPartId(int id) {
+//        ObservableList<Part> allParts = Inventory.getAllParts();
+//        for(int i = 0; i < allParts.size(); i++) {
+//            Part p = allParts.get(i);
+//            if(p.getId() == id) {
+//                return p;
+//            }
+////            error not working
+////            else {
+////                Alert alert = new Alert(Alert.AlertType.ERROR);
+////                alert.setTitle("Error Dialogue");
+////                alert.setContentText("No part was found.");
+////                alert.showAndWait();
+////            }
+//        }
+//        return null;
+//    }
+//
+//    private ObservableList<Product> searchByProductName(String partialProductName) {
+//        ObservableList<Product> namedProducts = FXCollections.observableArrayList();
+//        ObservableList<Product> allProducts = Inventory.getAllProducts();
+//
+//        for(Product p : allProducts) {
+//            if(p.getName().contains(partialProductName)){
+//                namedProducts.add(p);
+//            }
+//        } return namedProducts;
+//    }
 
 }
